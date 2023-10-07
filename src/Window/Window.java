@@ -6,7 +6,7 @@ package Window;
 
 /**
  *
- * @author Adam
+ * @author Adam Brannon
  */
 public class Window extends javax.swing.JFrame {
     
