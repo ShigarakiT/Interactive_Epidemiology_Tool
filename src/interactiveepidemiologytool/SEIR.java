@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SEIR {
-
+IET ietFrame = new IET();
+resultsPage resPage = new resultsPage(); 
 private int population; // Population defined by user
 private int timeframe;  // In days, controls # of loops, defined by user
 private int infected;   // Initial # of infected people, defined by user
@@ -65,8 +66,26 @@ private double[] deriv(int day) {
     return new double[] {newS, newE, newI, newR};
 }
 
-    public static void main(String[] args) {
-        IET frame = new IET();
-        frame.setVisible(true); //or whatever the method is in jframe.class
+  
+
+public void NavToResults(){
+    resPage.handleStart(); // for displaying results as text on screen
+    resPage.setVisible(true);
+    ietFrame.setVisible(false); // takes IET data & displays on result screen
+    
+    
+}
+
+    public void NavToIETScreen(){
+        ietFrame.setVisible(true);
+        resPage.setVisible(false);
     }
+
+    public SEIR(){
+        ietFrame.seir = this;
+        resPage.seir = this;
+        ietFrame.setVisible(true); 
+    }
+
+    
 }
