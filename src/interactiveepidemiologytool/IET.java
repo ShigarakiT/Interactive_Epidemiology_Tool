@@ -1,10 +1,11 @@
 package interactiveepidemiologytool;
 
 public class IET extends javax.swing.JFrame {
-
+    public SEIR seir;
     public IET() {
         initComponents();
     }
+
     // Hi
     /**
      * This method is called from within the constructor to initialize the form.
@@ -216,7 +217,8 @@ public class IET extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        SEIR epidemic = new SEIR();
+       
+        SEIR epidemic = seir;
         epidemic.setPop(popSlider.getValue());
         epidemic.setInfected(infectedSlider.getValue());
         epidemic.setTimeframe(timeSlider.getValue());
@@ -237,6 +239,8 @@ public class IET extends javax.swing.JFrame {
         System.out.println(epidemic.E);
         System.out.println(epidemic.I);
         System.out.println(epidemic.R);
+        seir.NavToResults(); // for the results window
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void popSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_popSliderStateChanged
