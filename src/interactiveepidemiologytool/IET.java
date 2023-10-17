@@ -1,12 +1,11 @@
 package interactiveepidemiologytool;
 
 public class IET extends javax.swing.JFrame {
-    public SEIR seir;
+
     public IET() {
         initComponents();
     }
 
-    // Hi
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,11 +27,15 @@ public class IET extends javax.swing.JFrame {
         timeCurrent = new javax.swing.JLabel();
         timeLabel = new javax.swing.JLabel();
         covidButton = new javax.swing.JRadioButton();
-        blackPlagueButton = new javax.swing.JRadioButton();
-        Welcom_Text_Area = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        Tool_Bar = new javax.swing.JToolBar();
-        File = new javax.swing.JButton();
+        fluButton = new javax.swing.JRadioButton();
+        vaccineCurrent = new javax.swing.JLabel();
+        vaccineLabel = new javax.swing.JLabel();
+        vaccineSlider = new javax.swing.JSlider();
+        quarantineCurrent = new javax.swing.JLabel();
+        quarantineLabel = new javax.swing.JLabel();
+        quarantineSlider = new javax.swing.JSlider();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        instructions = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,115 +103,155 @@ public class IET extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup2.add(blackPlagueButton);
-        blackPlagueButton.setText("Bubonic Plague");
-        blackPlagueButton.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(fluButton);
+        fluButton.setText("Influenza");
+        fluButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                blackPlagueButtonActionPerformed(evt);
+                fluButtonActionPerformed(evt);
             }
         });
 
-        Welcom_Text_Area.setBackground(new java.awt.Color(153, 153, 153));
-        Welcom_Text_Area.setBorder(null);
-        Welcom_Text_Area.setForeground(new java.awt.Color(153, 153, 153));
-        Welcom_Text_Area.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        Welcom_Text_Area.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        vaccineCurrent.setLabelFor(vaccineSlider);
+        vaccineCurrent.setText("0");
+        vaccineCurrent.setToolTipText("");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Liberation Sans", 0, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Welcome to our interactive epidemiology tool!  \nTo get started select a disease to simulate below and select what \n precautionary measures and parameters you want on the right.\n When you are finished please click the \"Start\" button.");
-        jTextArea1.setWrapStyleWord(true);
-        Welcom_Text_Area.setViewportView(jTextArea1);
+        vaccineLabel.setLabelFor(infectedSlider);
+        vaccineLabel.setText("Percent of population that is vaccinated");
 
-        Tool_Bar.setBackground(new java.awt.Color(255, 255, 255));
-        Tool_Bar.setRollover(true);
-        Tool_Bar.setPreferredSize(new java.awt.Dimension(100, 22));
+        vaccineSlider.setToolTipText("");
+        vaccineSlider.setValue(0);
+        vaccineSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                vaccineSliderStateChanged(evt);
+            }
+        });
 
-        File.setText("File");
-        File.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        File.setFocusable(false);
-        File.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        File.setMaximumSize(new java.awt.Dimension(40, 40));
-        File.setPreferredSize(new java.awt.Dimension(30, 25));
-        File.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        Tool_Bar.add(File);
+        quarantineCurrent.setLabelFor(quarantineSlider);
+        quarantineCurrent.setText("0");
+        quarantineCurrent.setToolTipText("");
+
+        quarantineLabel.setLabelFor(quarantineSlider);
+        quarantineLabel.setText("Percent of population that quarantine when displaying symptoms");
+
+        quarantineSlider.setToolTipText("");
+        quarantineSlider.setValue(0);
+        quarantineSlider.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                quarantineSliderStateChanged(evt);
+            }
+        });
+
+        instructions.setEditable(false);
+        instructions.setColumns(20);
+        instructions.setRows(5);
+        instructions.setText("Welcome to our interactive epidemiology tool!\n\nTo get started please select a disease you wish to simulate.\nAfter that please selection the parameters and safeguards you\nwould like to simulate for that disease.\n\nWhen you are happy with your selection please hit start.");
+        jScrollPane1.setViewportView(instructions);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(popCurrent)
-                .addGap(154, 154, 154))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(covidButton)
-                    .addComponent(blackPlagueButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 368, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(timeLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(timeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(timeCurrent)
-                            .addGap(105, 105, 105)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(infectLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(infectedSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(infectedCurrent)
-                            .addGap(105, 105, 105))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(popLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(popSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(61, 61, 61))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jButton1))
-                    .addComponent(Welcom_Text_Area, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(136, 136, 136)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Tool_Bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(quarantineLabel)
+                .addGap(16, 16, 16))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(quarantineSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(timeCurrent)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(covidButton)
+                                            .addComponent(fluButton))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(infectedCurrent)))
+                                .addGap(105, 105, 105))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 465, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(popCurrent)
+                                        .addGap(88, 88, 88))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(popLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(popSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(timeLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(timeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(infectLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(infectedSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(vaccineSlider, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(vaccineLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(quarantineCurrent, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(vaccineCurrent, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(98, 98, 98)))))
+                .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(Tool_Bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(vaccineLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vaccineSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(vaccineCurrent)
+                        .addGap(28, 28, 28)
+                        .addComponent(quarantineLabel))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Welcom_Text_Area, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addComponent(quarantineSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(quarantineCurrent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(infectedSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infectLabel)
-                    .addComponent(covidButton))
+                    .addComponent(infectLabel))
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(infectedCurrent)
-                    .addComponent(blackPlagueButton))
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(popSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(popLabel))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(infectedCurrent)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(popSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(popLabel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(covidButton)
+                        .addGap(10, 10, 10)
+                        .addComponent(fluButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(popCurrent)
-                .addGap(62, 62, 62)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(timeSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(timeLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(timeCurrent)
-                .addGap(75, 75, 75)
+                .addGap(42, 42, 42)
                 .addComponent(jButton1)
                 .addGap(41, 41, 41))
         );
@@ -216,31 +259,39 @@ public class IET extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // TODO: Implement observer
+    // I believe this is the data that requires implementing an observer for
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        SEIR epidemic = seir;
+        SEIR epidemic = new SEIR();
         epidemic.setPop(popSlider.getValue());
         epidemic.setInfected(infectedSlider.getValue());
         epidemic.setTimeframe(timeSlider.getValue());
         
-        if(covidButton.isSelected()){       // From what I have seen most SIR/SEIR models guess good values
-            epidemic.setInfectionRate(0.2);
-            epidemic.setRecovery(1.0/10.0);
+        // TODO: From what I have seen most SIR/SEIR models guess good values
+        // Lets try to research some better values
+        if(covidButton.isSelected()){             
+            epidemic.setInfectionRate(epidemic.setRateCovid(vaccineSlider.getValue(), quarantineSlider.getValue()));     
+            epidemic.setRecovery(1.0/12.0);
             epidemic.setIncubation(1.0/2.0);
         }
-        else if(blackPlagueButton.isSelected()){    // These are all bad guesses, need fixing
-            epidemic.setInfectionRate(0.3);
-            epidemic.setRecovery(1.0/15.0);
-            epidemic.setIncubation(1.0/3.0);
+        else if(fluButton.isSelected()){    // These are all bad guesses, need fixing
+            epidemic.setInfectionRate(epidemic.setRateFlu(vaccineSlider.getValue(), quarantineSlider.getValue()));
+            epidemic.setRecovery(1.0/7.0);
+            epidemic.setIncubation(1.0/2.0);
         }
         
-        epidemic.createData();
+        epidemic.simulate();
         System.out.println(epidemic.S);
         System.out.println(epidemic.E);
         System.out.println(epidemic.I);
         System.out.println(epidemic.R);
-        seir.NavToResults(); // for the results window
-       
+        
+        ResultsPage results = new ResultsPage(new IET(), true, 
+                epidemic.S.get(timeSlider.getValue()).toString(),
+                epidemic.E.get(timeSlider.getValue()).toString(),
+                epidemic.I.get(timeSlider.getValue()).toString(),
+                epidemic.R.get(timeSlider.getValue()).toString());
+        results.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void popSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_popSliderStateChanged
@@ -259,9 +310,17 @@ public class IET extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_covidButtonActionPerformed
 
-    private void blackPlagueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blackPlagueButtonActionPerformed
+    private void fluButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fluButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_blackPlagueButtonActionPerformed
+    }//GEN-LAST:event_fluButtonActionPerformed
+
+    private void vaccineSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_vaccineSliderStateChanged
+        vaccineCurrent.setText(""+vaccineSlider.getValue());
+    }//GEN-LAST:event_vaccineSliderStateChanged
+
+    private void quarantineSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_quarantineSliderStateChanged
+        quarantineCurrent.setText(""+quarantineSlider.getValue());
+    }//GEN-LAST:event_quarantineSliderStateChanged
 
     /**
      * @param args the command line arguments
@@ -299,22 +358,26 @@ public class IET extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton File;
-    private javax.swing.JToolBar Tool_Bar;
-    private javax.swing.JScrollPane Welcom_Text_Area;
-    private javax.swing.JRadioButton blackPlagueButton;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JRadioButton covidButton;
+    private javax.swing.JRadioButton fluButton;
     private javax.swing.JLabel infectLabel;
     private javax.swing.JLabel infectedCurrent;
     private javax.swing.JSlider infectedSlider;
+    private javax.swing.JTextArea instructions;
     private javax.swing.JButton jButton1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel popCurrent;
     private javax.swing.JLabel popLabel;
     private javax.swing.JSlider popSlider;
+    private javax.swing.JLabel quarantineCurrent;
+    private javax.swing.JLabel quarantineLabel;
+    private javax.swing.JSlider quarantineSlider;
     private javax.swing.JLabel timeCurrent;
     private javax.swing.JLabel timeLabel;
     private javax.swing.JSlider timeSlider;
+    private javax.swing.JLabel vaccineCurrent;
+    private javax.swing.JLabel vaccineLabel;
+    private javax.swing.JSlider vaccineSlider;
     // End of variables declaration//GEN-END:variables
 }
