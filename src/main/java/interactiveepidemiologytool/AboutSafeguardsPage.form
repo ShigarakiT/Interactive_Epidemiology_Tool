@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jScrollPane1" alignment="0" pref="627" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jScrollPane1" alignment="0" pref="347" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="instructions">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="There is a lot of misinformation about diseases and their prevention. We hope you take a moment to read&#xa;up on some general information about preventative measures against disease.&#xa;&#xa;One of the most common misconceptions is in the process of becomming sick itself. You have been&#xa;infected with diseases more often than you think! Most instances of being exposed to disease end&#xa;before you ever develop symptoms. This is why prevention is so important, because it is a numbers&#xa;game. The more times you are exposed to a disease the more likely you are to develop symptoms.&#xa;&#xa;Quarantine - &#x9;Quarantine refers to the action of self-isolating after you display symptoms.&#xa;&#x9;Quarantining is effective in preventing the spread of disease, but can &#xa;&#x9;only be done by people who are already sick. This means it is less effective for &#xa;&#x9;diseases that can spread before you develop symptoms, like with COVID-19.&#xa;&#xa;Vaccination   - &#x9;Vaccines are a weakened or limited version of the disease that is introduced to the&#xa;&#x9;body via injection. Vaccines train the body to be able fight against the disease you&#xa;&#x9;are vaccinated for. A common misconception is that vaccines should prevent you&#xa;&#x9;from ever getting sick. Vaccines do increase the chance that you will not develop&#xa;&#x9;symptoms, but their main function is to ensure your body is ready to fight the&#xa;&#x9;disease. A person who is vaccinated will not develop the same severity of &#xa;&#x9;symptoms as they would had they been unvaccinated. "/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
