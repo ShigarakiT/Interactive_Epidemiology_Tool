@@ -140,7 +140,7 @@
                       <Component id="aboutModelButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="100" max="32767" attributes="0"/>
+              <EmptySpace pref="125" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="infectedSlider" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="infectLabel" alignment="3" min="-2" max="-2" attributes="0"/>
