@@ -5,7 +5,9 @@ public class AboutModelPage extends javax.swing.JDialog {
     public AboutModelPage(MainPage iet, boolean modal) {
         super(iet, modal);
         initComponents();
-        Intro.setBackground(new java.awt.Color(0,0,0,1));
+        Intro.setOpaque(false);
+        Intro.setBackground(new java.awt.Color(255,255,255,0));
+        
     }
 
     /**
@@ -19,24 +21,30 @@ public class AboutModelPage extends javax.swing.JDialog {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Intro = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setAlwaysOnTop(true);
 
         Intro.setEditable(false);
         Intro.setColumns(20);
-        Intro.setFont(new java.awt.Font("Liberation Sans", 0, 10)); // NOI18N
+        Intro.setFont(new java.awt.Font("Liberation Sans", 0, 15)); // NOI18N
         Intro.setRows(5);
         Intro.setText("Thank you for your interest in our tool! Epidemiology is the study of how diseases affect a group \nof people. Both in the spread of the disease and the impact of the disease on the group of people.\nTo study how diseases spread simulations are used to model populations. SEIR is one of many \nmodels used to simulation a population. SEIR stands for: Susceptible Exposed Infected \nRecovered.\nEach component represents a portion of a population of people:\nSusceptible - People who are at risk of being exposed to a disease\nExposed - People who have been exposed but are not showing symptoms\nInfected - People who demonstrate symptoms\nRecovered - People who have overcome the disease or died\nThe model calculates the size of each population once per day.");
+        Intro.setMaximumSize(new java.awt.Dimension(720, 480));
+        Intro.setMinimumSize(new java.awt.Dimension(720, 480));
+        Intro.setPreferredSize(new java.awt.Dimension(720, 480));
         jScrollPane1.setViewportView(Intro);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 10, 470, 180);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/interactiveepidemiologytool/th-1902095236.jpeg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 480, 260);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -88,7 +96,6 @@ public class AboutModelPage extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea Intro;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
