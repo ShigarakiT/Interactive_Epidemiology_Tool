@@ -68,7 +68,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="fluButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="423" max="32767" attributes="0"/>
                               <Component id="popLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="popSlider" min="-2" max="-2" attributes="0"/>
@@ -83,8 +83,8 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="431" max="-2" attributes="0"/>
-                      <EmptySpace pref="155" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="450" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="quarantineSlider" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="vaccineSlider" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -117,7 +117,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="vaccineLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -130,20 +130,14 @@
                       <Component id="quarantineSlider" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="quarantineCurrent" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="175" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="aboutModelButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="aboutModelButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="195" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="aboutModelButton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="100" max="32767" attributes="0"/>
@@ -363,7 +357,7 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Welcome to our interactive epidemiology tool!&#xa;&#xa;To get started please select a disease you wish to simulate.&#xa;After that please selection the parameters and safeguards you&#xa;would like to simulate for that disease.&#xa;&#xa;When you are happy with your selection please hit Start.&#xa;&#xa;If you would like to learn more about a component please hit Learn More."/>
+            <Property name="text" type="java.lang.String" value="Welcome to our interactive epidemiology tool!&#xa;&#xa;To get started please select a disease you wish to simulate.&#xa;After that please selection the parameters and safeguards you&#xa;would like to simulate for that disease.&#xa;&#xa;When you are happy with your selection please hit Start.&#xa;&#xa;If you would like to learn more about a component please hit &#xa;Learn More."/>
           </Properties>
         </Component>
       </SubComponents>
