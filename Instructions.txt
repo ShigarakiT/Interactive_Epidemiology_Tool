@@ -1,0 +1,14 @@
+Thank you for your interest in our tool! Epidemiology is the study of how diseases affect a group 
+of people. Both in the spread of the disease and the impact of the disease on the group of people.
+
+To study how diseases spread simulations are used to model populations. SEIR is one of many models 
+used to simulation a population. SEIR stands for: Susceptible Exposed Infected Recovered.
+
+Each component represents a portion of a population of people:
+
+Susceptible - People who are at risk of being exposed to a disease
+Exposed - People who have been exposed but are not showing symptoms
+Infected - People who demonstrate symptoms
+Recovered - People who have overcome the disease or died
+
+The model calculates the size of each population once per day.
